@@ -1,0 +1,24 @@
+@model HotelBookingSystem.Models.Booking
+
+@{
+    ViewData["Title"] = "Book a Room";
+    var room = ViewBag.Room as HotelBookingSystem.Models.Room;
+}
+
+<h2>Book Room at @room.Hotel.Name</h2>
+
+<form asp-action="Create" method="post">
+    <input type="hidden" asp-for="RoomId" value="@room.Id" />
+    
+    <div class="mb-3">
+        <label class="form-label">Check-In Date</label>
+        <input type="date" asp-for="CheckIn" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Check-Out Date</label>
+        <input type="date" asp-for="CheckOut" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Book Now</button>
+</form>

@@ -1,0 +1,59 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
+
+public class AccountController : Controller
+{
+    private readonly SignInManager<IdentityUser> _signInManager;
+    private readonly UserManager<IdentityUser> _userManager;
+    private readonly ILogger<AccountController> _logger;
+
+    public AccountController(UserManager<IdentityUser> userManager, 
+                             SignInManager<IdentityUser> signInManager, 
+                             ILogger<AccountController> logger)
+    {
+        _userManager = userManager;
+        _signInManager = signInManager;
+        _logger = logger;
+    }
+
+    // ✅ GET: Login Page
+    [HttpGet]
+    public IActionResult Login()
+    {
+        return View();
+    }
+
+    // ✅ POST: Login
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
+    {
+        if (ModelState.IsValid)
+        {
+            var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, false);
+            if (result.Succeeded)
+            {
+                return Redirect("/Identity/Account/Login");
+            }
+            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+        }
+        return View(model);
+    }
+
+    // ✅ GET: Logout
+   [HttpGet]
+public IActionResult Logout()
+{
+    return Redirect("/Identity/Account/Logout");
+}
+
+[HttpPost]
+[ValidateAntiForgeryToken]
+public IActionResult LogoutPost()
+{
+    return Redirect("/Identity/Account/Logout");
+}
+
+}

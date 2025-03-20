@@ -1,0 +1,36 @@
+@model IEnumerable<HotelBookingSystem.Models.Booking>
+
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<h2>My Bookings</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Hotel</th>
+            <th>Room Number</th>
+            <th>Check-In</th>
+            <th>Check-Out</th>
+            <th>Total Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.Room.Hotel.Name</td>
+                <td>@booking.CheckIn.ToShortDateString()</td>
+                <td>@booking.CheckOut.ToShortDateString()</td>
+                <td>$@booking.TotalPrice</td>
+                <td>
+                    <form asp-action="Cancel" asp-route-id="@booking.Id" method="post">
+                        <button type="submit" class="btn btn-danger">Cancel</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

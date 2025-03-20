@@ -1,0 +1,93 @@
+/* Global Styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  flex: 1;
+}
+/* Navbar */
+.navbar {
+  background-color: #2c3e50;
+  padding: 15px;
+}
+.navbar-brand, .nav-link {
+  color: white !important;
+  font-size: 18px;
+}
+.nav-link:hover {
+  color: #e67e22 !important;
+}
+
+/* Hero Section */
+.hero {
+  background: url('/image/hotel.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  width: 100%;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+.hero p {
+  font-size: 1.5rem;
+}
+.hero .btn {
+  background-color: #e67e22;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+.hero .btn:hover {
+  background-color: #d35400;
+}
+
+/* Hotel Cards */
+.hotel-card {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease-in-out;
+}
+.hotel-card:hover {
+  transform: translateY(-5px);
+}
+.hotel-card h3 {
+  color: #2c3e50;
+}
+.hotel-card p {
+  font-size: 1rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #2c3e50; /* Dark color */
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  width: 100%;
+  position: relative;
+}
+.footer a {
+  color: #e67e22;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.footer a:hover {
+  color: #d35400;
+}
+
+/* Remove margin from footer */
+.footer p {
+  margin: 0;
+}

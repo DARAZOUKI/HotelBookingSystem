@@ -1,0 +1,44 @@
+@model HotelBookingSystem.Models.Room
+
+@{
+    ViewData["Title"] = "Create Room";
+}
+
+<h2>Add a New Room</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+    <label class="form-label">Hotel</label>
+    <select asp-for="HotelId" class="form-control" required>
+        <option value="">-- Select a Hotel --</option> <!-- Prevents HotelId=0 -->
+        @foreach (var hotel in ViewBag.Hotels)
+        {
+            <option value="@hotel.Id">@hotel.Name</option>
+        }
+    </select>
+    <span asp-validation-for="HotelId" class="text-danger"></span>
+</div>
+
+
+
+    <div class="mb-3">
+        <label class="form-label">Room Type</label>
+        <input type="text" asp-for="RoomType" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Price Per Night ($)</label>
+        <input type="number" asp-for="PricePerNight" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Available?</label>
+        <select asp-for="IsAvailable" class="form-control">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Room</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
