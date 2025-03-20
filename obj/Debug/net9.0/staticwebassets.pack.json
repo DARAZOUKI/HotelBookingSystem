@@ -13,10 +13,6 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\projectDT191G.Booking\\HotelBookingSystem\\wwwroot\\image\\hotel.jpg",
-      "PackagePath": "staticwebassets\\image\\hotel.jpg"
-    },
-    {
       "Id": "C:\\projectDT191G.Booking\\HotelBookingSystem\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

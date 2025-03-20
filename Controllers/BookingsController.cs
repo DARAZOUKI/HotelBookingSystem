@@ -38,39 +38,60 @@ namespace HotelBookingSystem.Controllers
         }
 
         // POST: Bookings/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RoomId,CheckIn,CheckOut")] Booking booking)
-        {
-            var user = await _userManager.GetUserAsync(User);
-            if (user == null) return RedirectToAction("Login", "Account");
+       [HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Create([Bind("RoomId,CheckIn,CheckOut")] Booking booking)
+{
+    var user = await _userManager.GetUserAsync(User);
+    if (user == null) return RedirectToAction("Login", "Account");
 
-            var room = await _context.Rooms.FindAsync(booking.RoomId);
-            if (room == null || !room.IsAvailable) return NotFound();
+   var existingBooking = await _context.Bookings
+    .Where(b => b.RoomId == booking.RoomId)
+    .Where(b => (booking.CheckIn >= b.CheckIn && booking.CheckIn < b.CheckOut) ||
+                (booking.CheckOut > b.CheckIn && booking.CheckOut <= b.CheckOut))
+    .FirstOrDefaultAsync();
 
-            booking.UserId = user.Id;
-            booking.TotalPrice = (decimal)(booking.CheckOut - booking.CheckIn).TotalDays * room.PricePerNight;
+if (existingBooking != null)
+{
+    ModelState.AddModelError("", "This room is already booked for the selected dates.");
+    return View(booking);
+}
 
-            _context.Add(booking);
-            room.IsAvailable = false;
-            await _context.SaveChangesAsync();
 
-            return RedirectToAction(nameof(Index));
-        }
+    booking.UserId = user.Id;
+    booking.TotalPrice = (decimal)(booking.CheckOut - booking.CheckIn).TotalDays * room.PricePerNight;
+
+    _context.Add(booking);
+    room.IsAvailable = false;
+    await _context.SaveChangesAsync();
+
+    return RedirectToAction(nameof(Index));
+}
+
 
         // POST: Bookings/Cancel/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Cancel(int id)
+       [HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Cancel(int id)
+{
+    var booking = await _context.Bookings.Include(b => b.Room).FirstOrDefaultAsync(b => b.Id == id);
+    if (booking != null)
+    {
+        // Check if this was the last booking for the room
+        var otherBookings = await _context.Bookings
+            .Where(b => b.RoomId == booking.RoomId && b.Id != id)
+            .AnyAsync();
+
+        if (!otherBookings)
         {
-            var booking = await _context.Bookings.Include(b => b.Room).FirstOrDefaultAsync(b => b.Id == id);
-            if (booking != null)
-            {
-                booking.Room.IsAvailable = true;
-                _context.Bookings.Remove(booking);
-                await _context.SaveChangesAsync();
-            }
-            return RedirectToAction(nameof(Index));
+            booking.Room.IsAvailable = true;
         }
+
+        _context.Bookings.Remove(booking);
+        await _context.SaveChangesAsync();
+    }
+    return RedirectToAction(nameof(Index));
+}
+
     }
 }

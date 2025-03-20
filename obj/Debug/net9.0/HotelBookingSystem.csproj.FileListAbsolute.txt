@@ -409,6 +409,7 @@ C:\projectDT191G.Booking\HotelBookingSystem\obj\Debug\net9.0\refint\HotelBooking
 C:\projectDT191G.Booking\HotelBookingSystem\obj\Debug\net9.0\HotelBookingSystem.pdb
 C:\projectDT191G.Booking\HotelBookingSystem\obj\Debug\net9.0\HotelBookingSystem.genruntimeconfig.cache
 C:\projectDT191G.Booking\HotelBookingSystem\obj\Debug\net9.0\ref\HotelBookingSystem.dll
-C:\projectDT191G.Booking\HotelBookingSystem\obj\Debug\net9.0\compressed\iv216husf1-sn9plxr8eh.gz
 C:\projectDT191G.Booking\HotelBookingSystem\bin\Debug\net9.0\Npgsql.dll
 C:\projectDT191G.Booking\HotelBookingSystem\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\projectDT191G.Booking\HotelBookingSystem\obj\Debug\net9.0\HotelBookingSystem.sourcelink.json
+C:\projectDT191G.Booking\HotelBookingSystem\obj\Debug\net9.0\compressed\iv216husf1-9cokjv73xh.gz
