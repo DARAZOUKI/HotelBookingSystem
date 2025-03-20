@@ -38,25 +38,19 @@ namespace HotelBookingSystem.Controllers
         }
 
         // POST: Bookings/Create
-       [HttpPost]
+     [HttpPost]
 [ValidateAntiForgeryToken]
 public async Task<IActionResult> Create([Bind("RoomId,CheckIn,CheckOut")] Booking booking)
 {
     var user = await _userManager.GetUserAsync(User);
     if (user == null) return RedirectToAction("Login", "Account");
 
-   var existingBooking = await _context.Bookings
-    .Where(b => b.RoomId == booking.RoomId)
-    .Where(b => (booking.CheckIn >= b.CheckIn && booking.CheckIn < b.CheckOut) ||
-                (booking.CheckOut > b.CheckIn && booking.CheckOut <= b.CheckOut))
-    .FirstOrDefaultAsync();
+    var room = await _context.Rooms.FindAsync(booking.RoomId);
+    if (room == null || !room.IsAvailable) return NotFound();
 
-if (existingBooking != null)
-{
-    ModelState.AddModelError("", "This room is already booked for the selected dates.");
-    return View(booking);
-}
-
+    // ✅ Ensure UTC timestamps
+    booking.CheckIn = DateTime.SpecifyKind(booking.CheckIn, DateTimeKind.Utc);
+    booking.CheckOut = DateTime.SpecifyKind(booking.CheckOut, DateTimeKind.Utc);
 
     booking.UserId = user.Id;
     booking.TotalPrice = (decimal)(booking.CheckOut - booking.CheckIn).TotalDays * room.PricePerNight;
@@ -67,6 +61,7 @@ if (existingBooking != null)
 
     return RedirectToAction(nameof(Index));
 }
+
 
 
         // POST: Bookings/Cancel/5
