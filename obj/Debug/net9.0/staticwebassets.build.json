@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fvTri3aUqM+deMWdHw8gfmRSwqpNJW7/k+rAc7k6KJ8=",
+  "Hash": "TNHRqwy+ZpsA1lCaSuy9aisJ+jpY6A0DxE/aYH057ks=",
   "Source": "HotelBookingSystem",
   "BasePath": "_content/HotelBookingSystem",
   "Mode": "Default",
@@ -1361,12 +1361,12 @@
       "OriginalItemSpec": "C:\\Users\\dania\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.2\\staticwebassets\\V5\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "C:\\projectDT191G.Booking\\HotelBookingSystem\\obj\\Debug\\net9.0\\compressed\\iv216husf1-9cokjv73xh.gz",
+      "Identity": "C:\\projectDT191G.Booking\\HotelBookingSystem\\obj\\Debug\\net9.0\\compressed\\iv216husf1-amgvdn4sau.gz",
       "SourceId": "HotelBookingSystem",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\projectDT191G.Booking\\HotelBookingSystem\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/HotelBookingSystem",
-      "RelativePath": "css/site#[.{fingerprint=9cokjv73xh}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=amgvdn4sau}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1375,8 +1375,8 @@
       "RelatedAsset": "C:\\projectDT191G.Booking\\HotelBookingSystem\\wwwroot\\css\\site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "5dbtmtrjw3",
-      "Integrity": "N0fxjPsCuKzU493UpWG+UGv9BKrUUTWAwt/+Xdcynv8=",
+      "Fingerprint": "x4jfk9gldx",
+      "Integrity": "X1mHO/1mzs7+5+QueMfrEi9StGMLme2NTTLij96ApUA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\projectDT191G.Booking\\HotelBookingSystem\\wwwroot\\css\\site.css"
@@ -2719,8 +2719,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "9cokjv73xh",
-      "Integrity": "Obd4loamAWcBEMZvfxOh0bQW2SYguFXh6yKthj7CPVk=",
+      "Fingerprint": "amgvdn4sau",
+      "Integrity": "4o5VOZTDWhJ+yjFUClazCUKUJy6JItTxZ1dlnfrB2CM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -5353,13 +5353,13 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/site.9cokjv73xh.css",
-      "AssetFile": "C:\\projectDT191G.Booking\\HotelBookingSystem\\obj\\Debug\\net9.0\\compressed\\iv216husf1-9cokjv73xh.gz",
+      "Route": "css/site.amgvdn4sau.css",
+      "AssetFile": "C:\\projectDT191G.Booking\\HotelBookingSystem\\obj\\Debug\\net9.0\\compressed\\iv216husf1-amgvdn4sau.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001607717042"
+          "Quality": "0.001499250375"
         }
       ],
       "ResponseHeaders": [
@@ -5369,15 +5369,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "621"
+          "Value": "666"
         },
         {
           "Name": "ETag",
-          "Value": "\"N0fxjPsCuKzU493UpWG+UGv9BKrUUTWAwt/+Xdcynv8=\""
+          "Value": "\"X1mHO/1mzs7+5+QueMfrEi9StGMLme2NTTLij96ApUA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 20 Mar 2025 09:03:24 GMT"
+          "Value": "Thu, 20 Mar 2025 21:18:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5397,13 +5397,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Obd4loamAWcBEMZvfxOh0bQW2SYguFXh6yKthj7CPVk=\""
+          "Value": "W/\"4o5VOZTDWhJ+yjFUClazCUKUJy6JItTxZ1dlnfrB2CM=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9cokjv73xh"
+          "Value": "amgvdn4sau"
         },
         {
           "Name": "label",
@@ -5411,12 +5411,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Obd4loamAWcBEMZvfxOh0bQW2SYguFXh6yKthj7CPVk="
+          "Value": "sha256-4o5VOZTDWhJ+yjFUClazCUKUJy6JItTxZ1dlnfrB2CM="
         }
       ]
     },
     {
-      "Route": "css/site.9cokjv73xh.css",
+      "Route": "css/site.amgvdn4sau.css",
       "AssetFile": "C:\\projectDT191G.Booking\\HotelBookingSystem\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -5426,7 +5426,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1544"
+          "Value": "1616"
         },
         {
           "Name": "Content-Type",
@@ -5434,11 +5434,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Obd4loamAWcBEMZvfxOh0bQW2SYguFXh6yKthj7CPVk=\""
+          "Value": "\"4o5VOZTDWhJ+yjFUClazCUKUJy6JItTxZ1dlnfrB2CM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 20 Mar 2025 09:03:24 GMT"
+          "Value": "Thu, 20 Mar 2025 21:18:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5448,7 +5448,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9cokjv73xh"
+          "Value": "amgvdn4sau"
         },
         {
           "Name": "label",
@@ -5456,13 +5456,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Obd4loamAWcBEMZvfxOh0bQW2SYguFXh6yKthj7CPVk="
+          "Value": "sha256-4o5VOZTDWhJ+yjFUClazCUKUJy6JItTxZ1dlnfrB2CM="
         }
       ]
     },
     {
-      "Route": "css/site.9cokjv73xh.css.gz",
-      "AssetFile": "C:\\projectDT191G.Booking\\HotelBookingSystem\\obj\\Debug\\net9.0\\compressed\\iv216husf1-9cokjv73xh.gz",
+      "Route": "css/site.amgvdn4sau.css.gz",
+      "AssetFile": "C:\\projectDT191G.Booking\\HotelBookingSystem\\obj\\Debug\\net9.0\\compressed\\iv216husf1-amgvdn4sau.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5471,7 +5471,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "621"
+          "Value": "666"
         },
         {
           "Name": "Content-Type",
@@ -5479,11 +5479,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"N0fxjPsCuKzU493UpWG+UGv9BKrUUTWAwt/+Xdcynv8=\""
+          "Value": "\"X1mHO/1mzs7+5+QueMfrEi9StGMLme2NTTLij96ApUA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 20 Mar 2025 09:03:24 GMT"
+          "Value": "Thu, 20 Mar 2025 21:18:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5501,7 +5501,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9cokjv73xh"
+          "Value": "amgvdn4sau"
         },
         {
           "Name": "label",
@@ -5509,18 +5509,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-N0fxjPsCuKzU493UpWG+UGv9BKrUUTWAwt/+Xdcynv8="
+          "Value": "sha256-X1mHO/1mzs7+5+QueMfrEi9StGMLme2NTTLij96ApUA="
         }
       ]
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "C:\\projectDT191G.Booking\\HotelBookingSystem\\obj\\Debug\\net9.0\\compressed\\iv216husf1-9cokjv73xh.gz",
+      "AssetFile": "C:\\projectDT191G.Booking\\HotelBookingSystem\\obj\\Debug\\net9.0\\compressed\\iv216husf1-amgvdn4sau.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001607717042"
+          "Quality": "0.001499250375"
         }
       ],
       "ResponseHeaders": [
@@ -5530,15 +5530,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "621"
+          "Value": "666"
         },
         {
           "Name": "ETag",
-          "Value": "\"N0fxjPsCuKzU493UpWG+UGv9BKrUUTWAwt/+Xdcynv8=\""
+          "Value": "\"X1mHO/1mzs7+5+QueMfrEi9StGMLme2NTTLij96ApUA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 20 Mar 2025 09:03:24 GMT"
+          "Value": "Thu, 20 Mar 2025 21:18:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5558,13 +5558,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Obd4loamAWcBEMZvfxOh0bQW2SYguFXh6yKthj7CPVk=\""
+          "Value": "W/\"4o5VOZTDWhJ+yjFUClazCUKUJy6JItTxZ1dlnfrB2CM=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Obd4loamAWcBEMZvfxOh0bQW2SYguFXh6yKthj7CPVk="
+          "Value": "sha256-4o5VOZTDWhJ+yjFUClazCUKUJy6JItTxZ1dlnfrB2CM="
         }
       ]
     },
@@ -5579,7 +5579,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1544"
+          "Value": "1616"
         },
         {
           "Name": "Content-Type",
@@ -5587,11 +5587,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Obd4loamAWcBEMZvfxOh0bQW2SYguFXh6yKthj7CPVk=\""
+          "Value": "\"4o5VOZTDWhJ+yjFUClazCUKUJy6JItTxZ1dlnfrB2CM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 20 Mar 2025 09:03:24 GMT"
+          "Value": "Thu, 20 Mar 2025 21:18:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5601,7 +5601,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Obd4loamAWcBEMZvfxOh0bQW2SYguFXh6yKthj7CPVk="
+          "Value": "sha256-4o5VOZTDWhJ+yjFUClazCUKUJy6JItTxZ1dlnfrB2CM="
         }
       ]
     },
@@ -5644,7 +5644,7 @@
     },
     {
       "Route": "css/site.css.gz",
-      "AssetFile": "C:\\projectDT191G.Booking\\HotelBookingSystem\\obj\\Debug\\net9.0\\compressed\\iv216husf1-9cokjv73xh.gz",
+      "AssetFile": "C:\\projectDT191G.Booking\\HotelBookingSystem\\obj\\Debug\\net9.0\\compressed\\iv216husf1-amgvdn4sau.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5653,7 +5653,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "621"
+          "Value": "666"
         },
         {
           "Name": "Content-Type",
@@ -5661,11 +5661,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"N0fxjPsCuKzU493UpWG+UGv9BKrUUTWAwt/+Xdcynv8=\""
+          "Value": "\"X1mHO/1mzs7+5+QueMfrEi9StGMLme2NTTLij96ApUA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 20 Mar 2025 09:03:24 GMT"
+          "Value": "Thu, 20 Mar 2025 21:18:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5683,7 +5683,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-N0fxjPsCuKzU493UpWG+UGv9BKrUUTWAwt/+Xdcynv8="
+          "Value": "sha256-X1mHO/1mzs7+5+QueMfrEi9StGMLme2NTTLij96ApUA="
         }
       ]
     },
