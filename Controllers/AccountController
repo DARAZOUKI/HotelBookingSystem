@@ -51,9 +51,11 @@ public IActionResult Logout()
 
 [HttpPost]
 [ValidateAntiForgeryToken]
-public IActionResult LogoutPost()
+public async Task<IActionResult> LogoutPost()
 {
-    return Redirect("/Identity/Account/Logout");
+    await _signInManager.SignOutAsync();
+    return RedirectToAction("Index", "Home");
 }
+
 
 }

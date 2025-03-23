@@ -21,11 +21,19 @@ namespace HotelBookingSystem.Controllers
         }
 
         // GET: Bookings
-        public async Task<IActionResult> Index()
-        {
-            var bookings = await _context.Bookings.Include(b => b.Room).ThenInclude(r => r.Hotel).ToListAsync();
-            return View(bookings);
-        }
+      public async Task<IActionResult> Index()
+    {
+        var user = await _userManager.GetUserAsync(User);
+        if (user == null) return RedirectToAction("Login", "Account");
+
+        var bookings = await _context.Bookings
+            .Include(b => b.Room)
+            .ThenInclude(r => r.Hotel)
+            .Where(b => b.UserId == user.Id) // Only show logged-in user's bookings
+            .ToListAsync();
+
+        return View(bookings);
+    }
 
         // GET: Bookings/Create
         public IActionResult Create(int roomId)
@@ -38,7 +46,7 @@ namespace HotelBookingSystem.Controllers
         }
 
         // POST: Bookings/Create
-     [HttpPost]
+  [HttpPost]
 [ValidateAntiForgeryToken]
 public async Task<IActionResult> Create([Bind("RoomId,CheckIn,CheckOut")] Booking booking)
 {
@@ -52,15 +60,30 @@ public async Task<IActionResult> Create([Bind("RoomId,CheckIn,CheckOut")] Bookin
     booking.CheckIn = DateTime.SpecifyKind(booking.CheckIn, DateTimeKind.Utc);
     booking.CheckOut = DateTime.SpecifyKind(booking.CheckOut, DateTimeKind.Utc);
 
+    // 🔍 Check for overlapping bookings
+    var existingBooking = await _context.Bookings
+        .Where(b => b.RoomId == booking.RoomId)  // Same room
+        .Where(b => b.CheckOut > booking.CheckIn && b.CheckIn < booking.CheckOut)  // Overlapping dates
+        .FirstOrDefaultAsync();
+
+    if (existingBooking != null)
+    {
+        ModelState.AddModelError("", "Room is already booked for the selected dates.");
+        var roomDetails = await _context.Rooms.Include(r => r.Hotel).FirstOrDefaultAsync(r => r.Id == booking.RoomId);
+        ViewBag.Room = roomDetails;
+        return View(booking); // Return to form with error message
+    }
+
+    // ✅ Assign user & calculate total price
     booking.UserId = user.Id;
     booking.TotalPrice = (decimal)(booking.CheckOut - booking.CheckIn).TotalDays * room.PricePerNight;
 
     _context.Add(booking);
-    room.IsAvailable = false;
     await _context.SaveChangesAsync();
 
     return RedirectToAction(nameof(Index));
 }
+
 
 
 
@@ -86,6 +109,16 @@ public async Task<IActionResult> Cancel(int id)
         await _context.SaveChangesAsync();
     }
     return RedirectToAction(nameof(Index));
+}
+public async Task<IActionResult> Details(int id)
+{
+    var booking = await _context.Bookings
+        .Include(b => b.Room)
+        .ThenInclude(r => r.Hotel)
+        .FirstOrDefaultAsync(b => b.Id == id);
+
+    if (booking == null) return NotFound();
+    return View(booking);
 }
 
     }

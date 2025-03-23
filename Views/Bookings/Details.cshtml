@@ -1,0 +1,10 @@
+@model HotelBookingSystem.Models.Booking
+
+<h2>Booking Confirmation</h2>
+<p><strong>Hotel:</strong> @Model.Room.Hotel.Name</p>
+<p><strong>Room Type:</strong> @Model.Room.RoomType</p>
+<p><strong>Check-in:</strong> @Model.CheckIn.ToShortDateString()</p>
+<p><strong>Check-out:</strong> @Model.CheckOut.ToShortDateString()</p>
+<p><strong>Price:</strong> @Model.Room.PricePerNight per night</p>
+
+<a asp-action="Index">Back to Bookings</a>

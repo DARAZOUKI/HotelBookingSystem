@@ -33,6 +33,11 @@
                     <a class="nav-link" href="@Url.Action("Index", "Rooms")">Rooms</a>
                 </li>
             </ul>
+            <ul class="navbar-nav ms-auto">
+            @if (User.IsInRole("Admin"))
+{
+    <li><a asp-controller="Admin" asp-action="ManageBookings">Admin Panel</a></li>
+}
 
             <ul class="navbar-nav ms-auto">
                 @if (User.Identity.IsAuthenticated)

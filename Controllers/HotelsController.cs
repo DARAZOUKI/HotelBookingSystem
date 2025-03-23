@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace HotelBookingSystem.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    
     public class HotelsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -30,6 +30,7 @@ namespace HotelBookingSystem.Controllers
         }
 
         // POST: Hotels/Create
+         [Authorize (Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Location")] Hotel hotel)
@@ -43,7 +44,8 @@ namespace HotelBookingSystem.Controllers
             return View(hotel);
         }
 
-        // GET: Hotels/Edit/5
+        // GET: Hotels/Edit/
+        [Authorize (Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -54,7 +56,9 @@ namespace HotelBookingSystem.Controllers
             return View(hotel);
         }
 
-        // POST: Hotels/Edit/5
+        // POST: Hotels/Edit/
+        
+        [Authorize (Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Location")] Hotel hotel)
@@ -70,7 +74,8 @@ namespace HotelBookingSystem.Controllers
             return View(hotel);
         }
 
-        // GET: Hotels/Delete/5
+        // GET: Hotels/Delete/
+        [Authorize (Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -81,7 +86,8 @@ namespace HotelBookingSystem.Controllers
             return View(hotel);
         }
 
-        // POST: Hotels/Delete/5
+        // POST: Hotels/Delete/
+        [Authorize (Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -1,0 +1,46 @@
+@model HotelBookingSystem.Models.Room
+
+@{
+    ViewData["Title"] = "Edit Room";
+}
+
+<h2>Edit Room</h2>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="HotelId" class="control-label">Hotel</label>
+        <select asp-for="HotelId" class="form-control" asp-items="@(new SelectList(ViewBag.Hotels, "Id", "Name"))">
+            <option value="">Select a hotel</option>
+        </select>
+        <span asp-validation-for="HotelId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomType" class="control-label"></label>
+        <input asp-for="RoomType" class="form-control" />
+        <span asp-validation-for="RoomType" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PricePerNight" class="control-label">Price per Night</label>
+        <input asp-for="PricePerNight" class="form-control" />
+        <span asp-validation-for="PricePerNight" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IsAvailable" class="control-label">Available</label>
+        <select asp-for="IsAvailable" class="form-control">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+    </div>
+
+    <div class="form-group mt-3">
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+
+

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace HotelBookingSystem.Controllers
 {
-     [Authorize]
+    
     public class RoomsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -49,6 +49,7 @@ namespace HotelBookingSystem.Controllers
 
 
         // POST: Rooms/Create
+ [Authorize (Roles = "Admin")]
 [HttpPost]
 [ValidateAntiForgeryToken]
 public async Task<IActionResult> Create([Bind("Id,HotelId,RoomType,PricePerNight,IsAvailable")] Room room)
@@ -84,6 +85,7 @@ public async Task<IActionResult> Create([Bind("Id,HotelId,RoomType,PricePerNight
 
 
         // GET: Rooms/Edit/5
+         [Authorize (Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -96,6 +98,7 @@ public async Task<IActionResult> Create([Bind("Id,HotelId,RoomType,PricePerNight
         }
 
         // POST: Rooms/Edit/5
+         [Authorize (Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,HotelId,RoomType,PricePerNight,IsAvailable")] Room room)
@@ -112,6 +115,7 @@ public async Task<IActionResult> Create([Bind("Id,HotelId,RoomType,PricePerNight
         }
 
         // GET: Rooms/Delete/5
+         [Authorize (Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -123,6 +127,7 @@ public async Task<IActionResult> Create([Bind("Id,HotelId,RoomType,PricePerNight
         }
 
         // POST: Rooms/Delete/5
+         [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

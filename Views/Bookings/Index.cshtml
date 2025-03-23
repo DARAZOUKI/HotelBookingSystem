@@ -10,10 +10,11 @@
     <thead>
         <tr>
             <th>Hotel</th>
-            <th>Room Number</th>
+            <th>Room Type</th>
             <th>Check-In</th>
             <th>Check-Out</th>
             <th>Total Price</th>
+            <th>Details</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -22,9 +23,11 @@
         {
             <tr>
                 <td>@booking.Room.Hotel.Name</td>
+                <td>@booking.Room.RoomType</td>
                 <td>@booking.CheckIn.ToShortDateString()</td>
                 <td>@booking.CheckOut.ToShortDateString()</td>
                 <td>$@booking.TotalPrice</td>
+                 <td><a asp-action="Details" asp-route-id="@booking.Id">View Details</a></td>
                 <td>
                     <form asp-action="Cancel" asp-route-id="@booking.Id" method="post">
                         <button type="submit" class="btn btn-danger">Cancel</button>

@@ -9,7 +9,13 @@
 
 <form asp-action="Create" method="post">
     <input type="hidden" name="RoomId" value="@ViewBag.Room.Id" />
-    
+    @if (!ViewData.ModelState.IsValid)
+{
+    <div class="text-danger">
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    </div>
+}
+
     <div class="mb-3">
         <label class="form-label">Check-In Date</label>
         <input type="date" asp-for="CheckIn" class="form-control" required />

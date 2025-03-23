@@ -1,0 +1,31 @@
+@model List<HotelBookingSystem.Models.Booking>
+
+<h2>Admin - Manage Bookings</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Hotel</th>
+            <th>Room Type</th>
+            <th>Check-in</th>
+            <th>Check-out</th>
+            <th>User</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.Room.Hotel.Name</td>
+                <td>@booking.Room.RoomType</td>
+                <td>@booking.CheckIn.ToShortDateString()</td>
+                <td>@booking.CheckOut.ToShortDateString()</td>
+                <td>@booking.UserId</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@booking.Id">View</a>
+                    <a asp-action="Delete" asp-route-id="@booking.Id">Cancel</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

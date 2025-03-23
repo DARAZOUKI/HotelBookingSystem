@@ -6,8 +6,8 @@
 
 <h2>Available Rooms</h2>
 
-<table class="table table-striped">
-    <thead>
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
         <tr>
             <th>Hotel</th>
             <th>Room Type</th>
@@ -36,12 +36,18 @@
                 <td>
                     @if (room.IsAvailable)
                     {
-                        <a asp-controller="Bookings" asp-action="Create" asp-route-roomId="@room.Id" class="btn btn-primary">Book Now</a>
+                        <a asp-controller="Bookings" asp-action="Create" asp-route-roomId="@room.Id" class="btn btn-primary btn-sm">Book Now</a>
                     }
                     else
                     {
-                        <button class="btn btn-secondary" disabled>Not Available</button>
+                        <button class="btn btn-secondary btn-sm" disabled>Not Available</button>
                     }
+
+                    <a asp-action="Edit" asp-route-id="@room.Id" class="btn btn-warning btn-sm">Edit</a>
+
+                    <form asp-action="Delete" asp-route-id="@room.Id" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this room?');">Delete</button>
+                    </form>
                 </td>
             </tr>
         }
